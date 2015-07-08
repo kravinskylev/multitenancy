@@ -30,6 +30,7 @@ class AdminEditsStoreTest < ActionDispatch::IntegrationTest
                        password: "password")
 
     user.roles.create(name: "admin")
+    assert user.roles.where(name: "admin").exists?
 
     store = Store.create(name: "Pizza Palace")
 
