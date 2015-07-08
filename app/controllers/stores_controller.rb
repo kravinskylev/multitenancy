@@ -23,7 +23,7 @@ before_action :authorize!, only: [:edit]
   end
 
   def authorize!
-    unless current_user.roles.where(name: "admin").exists?
+    unless current_user.verify?("admin")
       flash[:notice] = "Can't let you do that, #{current_user.name}"
       redirect_to root_path
     end
