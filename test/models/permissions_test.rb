@@ -1,21 +1,14 @@
 require_relative '../test_helper'
 
 class PermissionsTest < ActiveSupport::TestCase
-  def test_it_takes_in_a_user
-
-  end
-
-  def test_it_verifies_permissions
-
-  end
-
-  def permission_lets_admin_edit_store
+  def test_permission_lets_admin_edit_store
     admin = User.create(name: "lev",
-                        email: "lev@dev.com"
+                        email: "lev@dev.com",
                         password: "password")
 
     admin.roles.create(name: "admin")
+    p = Permission.new(admin)
 
-
+    assert p.can_edit_store?
   end
 end
