@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   has_many :roles, through: :user_roles
 
   def verify?(role)
-    roles.where(name: role).any?
+    roles.where(name: role).exists?
   end
 end
