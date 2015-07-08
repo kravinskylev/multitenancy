@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   has_many :user_roles
   has_many :roles, through: :user_roles
 
-  def verify?(role)
-    roles.where(name: role).exists?
+  def verify?(role, store)
+    role = Role.find_by(name: role)
+    user_roles.where(store_id: store.id, role_id: role.id).exists?
   end
 end

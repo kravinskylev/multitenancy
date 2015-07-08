@@ -3,7 +3,7 @@ class Permission
     @user = user
   end
 
-  def can_edit_store?
-    @user.verify?("admin")
+  def can_edit_store?(store)
+    @user.verify?("admin", store)
   end
 end
