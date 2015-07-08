@@ -12,6 +12,8 @@ class AdminEditsStoreTest < ActionDispatch::IntegrationTest
                        email: "jdawg@gmail.com",
                        password: "password")
 
+    admin_role = Role.create(name: "admin")
+
     store = Store.create(name: "Pizza Palace")
 
     visit login_path
