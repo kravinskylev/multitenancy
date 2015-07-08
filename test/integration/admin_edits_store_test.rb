@@ -7,8 +7,8 @@ class AdminEditsStoreTest < ActionDispatch::IntegrationTest
     reset_session!
   end
 
-  def test_admin_edits_a_store
-    admin = User.create(name: "Justin", email: "jdawg@gmail.com", password: "password")
+  def test_non_admin_cant_edit_a_store
+    user = User.create(name: "Justin", email: "jdawg@gmail.com", password: "password")
     store = Store.create(name: "Pizza Palace")
 
     visit login_path
